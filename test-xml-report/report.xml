@@ -1,0 +1,10 @@
+<testsuites id="" name="" tests="3" failures="0" skipped="0" errors="0" time="32.25901000000536">
+<testsuite name="specs/tests/home-page-tests.spec.ts" timestamp="1666692986226" hostname="" tests="3" failures="0" skipped="0" time="75.998" errors="0">
+<testcase name="Home Page tests @All @HomePage  User is presented with home page loaded after loged in: @Smoke @TEST_JIRA_PROJECT_ID-1111" classname="[firefox] › specs/tests/home-page-tests.spec.ts › Home Page tests @All @HomePage  › User is presented with home page loaded after loged in: @Smoke @TEST_JIRA_PROJECT_ID-1111" time="29.448">
+</testcase>
+<testcase name="Home Page tests @All @HomePage  User is presented with search results: @Smoke @TEST_JIRA_PROJECT_ID-1111" classname="[firefox] › specs/tests/home-page-tests.spec.ts › Home Page tests @All @HomePage  › User is presented with search results: @Smoke @TEST_JIRA_PROJECT_ID-1111" time="23.457">
+</testcase>
+<testcase name="Home Page tests @All @HomePage  User is presented with category articles list: @Smoke @TEST_JIRA_PROJECT_ID-1111" classname="[firefox] › specs/tests/home-page-tests.spec.ts › Home Page tests @All @HomePage  › User is presented with category articles list: @Smoke @TEST_JIRA_PROJECT_ID-1111" time="23.093">
+</testcase>
+</testsuite>
+</testsuites>

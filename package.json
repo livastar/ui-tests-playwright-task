@@ -1,0 +1,27 @@
+{
+  "name": "ui-tests-playwright",
+  "version": "1.0.0",
+  "description": "Playwright UI test project",
+  "main": "index.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/livastar/ui-tests-playwright.git"
+  },
+  "scripts": {
+    "tests_on_chrome": "npx playwright test --project=chromium",
+    "tests_on_firefox": "npx playwright test --project=firefox",
+    "tests_on_safari": "npx playwright test --project=webkit",
+    "tests_on_all_browsers": "npx playwright test",
+    "clean_results": "rm -rf ./test-html-report/ && rm -rf ./test-xml-report && rm -rf ./test-results-artifacts/",
+    "report": "npx playwright show-report"
+  },
+  "keywords": [],
+  "author": "SIvanov",
+  "license": "ISC",
+  "homepage": "https://github.com/livastar/ui-tests-playwright#readme",
+  "devDependencies": {
+    "@playwright/test": "^1.27.0",
+    "dotenv": "16.0.1",
+    "envalid": "7.3.1"
+  }
+}
