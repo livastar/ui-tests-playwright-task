@@ -23,7 +23,7 @@ test.describe('Tests @All', () => {
   test(`User is presented with home page loaded after loged in: @Smoke @TEST_JIRA_PROJECT_ID-1111`, async ({ page }) => {
     onLoginPage = new LoginPage(page);
 
-    await onHomePage.logInButton().click({ delay: 500 });
+    await onHomePage.logInButton().click({ delay: 1000 });
     await onLoginPage.login();
     await onHomePage.userShouldBeLoggedIn();
     await expect(page).toHaveURL(`${testBaseURL}`);

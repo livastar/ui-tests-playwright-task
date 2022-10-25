@@ -4,7 +4,7 @@ import { cleanEnv, url, str, bool } from 'envalid';
 const CONFIG = cleanEnv(process.env, {
 
     HEADLESS: bool({
-        default: false,
+        default: true,
         desc: `run tests in headless mode`,
     }),
 

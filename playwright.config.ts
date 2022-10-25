@@ -4,7 +4,6 @@ require('dotenv').config();
 
 import CONFIG from './config';
 
-
 const browsersConfigs: PlaywrightTestConfig['use'] = {
 
   // Head
