@@ -1,0 +1,15 @@
+{
+  "editor.formatOnSave": true,
+  "editor.formatOnPaste": true,
+  "eslint.format.enable": true,
+  "eslint.codeActionsOnSave.rules": null,
+  "prettier.requireConfig": true,
+  "editor.defaultFormatter": "esbenp.prettier-vscode",
+  "files.autoSave": "afterDelay",
+  "typescript.updateImportsOnFileMove.enabled": "always",
+  "workbench.iconTheme": "vscode-icons",
+  "playwright.reuseBrowser": true,
+  "playwright.env": {},
+  "prettier.configPath": ".prettierrc",
+  "prettier.useTabs": true
+}

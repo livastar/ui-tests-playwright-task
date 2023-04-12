@@ -13,7 +13,12 @@
     "reinstall": "npm run clean && npm install",
     "report": "npx playwright show-report playwright-report/html"
   },
-  "keywords": [],
+  "keywords": [
+    "playwright",
+    "workshop",
+    "automation",
+    "testing"
+  ],
   "author": "",
   "license": "ISC",
   "dependencies": {

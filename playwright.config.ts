@@ -13,7 +13,7 @@ export default defineConfig({
      * Maximum time expect() should wait for the condition to be met.
      * For example in `await expect(locator).toHaveText();`
      */
-    timeout: 20 * 1000
+    timeout: 20 * 1000,
   },
   /* Root directory for tests. */
   testDir: './src/',
@@ -32,18 +32,20 @@ export default defineConfig({
   /* Reporter to use. See https://playwright.dev/docs/test-reporters */
   reporter: [
     ['list'],
-    ['junit', {
-      outputFile: './playwright-report/xml/report.xml'
-    }],
-    ['html', {
-      outputFolder: './playwright-report/html',
-      open: 'on-failure'
-    }],
+    [
+      'html',
+      {
+        outputFolder: './playwright-report/html',
+        open: 'on-failure',
+      },
+    ],
   ],
   /* Directory to store the reports. */
   outputDir: 'playwright-report/test-results-artifacts/',
   /* Shared settings for all the projects below. See https://playwright.dev/docs/api/class-testoptions. */
   use: {
+    // Headless mode
+    headless: false,
     /* Maximum time each action such as `click()` can take. Defaults to 0 (no limit). */
     actionTimeout: 15 * 1000,
     // navigation timeout
@@ -61,8 +63,8 @@ export default defineConfig({
       mode: 'on-first-retry',
       size: {
         width: 1920,
-        height: 1080
-      }
+        height: 1080,
+      },
     },
 
     /* Base URL to use in actions like `await page.goto('/')`. */
@@ -74,21 +76,28 @@ export default defineConfig({
   /* Configure projects for major browsers */
   projects: [
     {
-      name: 'login',
-      testMatch: /setup\.ts/,
-      use: {
-        headless: true
-      }
-    },
-    {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-        storageState: 'playwright-report/.auth/user.json',
-        headless: false,
       },
-      dependencies: ['login'],
+    },
+    {
+      name: 'firefox',
+      use: {
+        ...devices['Desktop Firefox'],
+      },
+    },
+    {
+      name: 'webkit',
+      use: {
+        ...devices['Desktop Safari'],
+      },
+    },
+    {
+      name: 'edge',
+      use: {
+        ...devices['Desktop Edge'],
+      },
     },
   ],
-
 });

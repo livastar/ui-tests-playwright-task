@@ -12,6 +12,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "no-tabs": ["error", { "allowIndentationTabs": true }],
     "indent": ["error", 2, { "SwitchCase": 1 }], // Enforce 2-space indentation and 1-space indent for switch case clauses.
     "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }], // Require single quotes, allow double quotes for escaping, and allow template literals.
     "semi": ["error", "always"], // Enforce semicolons at the end of statements.
