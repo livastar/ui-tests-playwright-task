@@ -5,7 +5,6 @@ import { LoginPage } from '../pages/login-page';
 import { SearchCategory, SearchPage } from '../pages/search-page';
 
 test.describe('Tests @All', () => {
-
   let onHomePage: HomePage;
   let onLoginPage: LoginPage;
   let onSearchPage: SearchPage;
@@ -16,7 +15,7 @@ test.describe('Tests @All', () => {
     onHomePage = new HomePage(page);
 
     testBaseURL = String(baseURL);
-    await page.goto('', { waitUntil: "domcontentloaded" });
+    await page.goto('', { waitUntil: 'domcontentloaded' });
     await onHomePage.acceptCookies().click();
   });
 
@@ -45,5 +44,4 @@ test.describe('Tests @All', () => {
     await onSearchPage.clickOnSearchCategory(SearchCategory.Columnisten);
     await onColumnistenPage.shouldSeeCategoryArticles();
   });
-
 });

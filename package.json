@@ -1,27 +1,34 @@
 {
-  "name": "ui-tests-playwright",
+  "name": "workshop-playwright",
   "version": "1.0.0",
-  "description": "Playwright UI test project",
+  "description": "",
   "main": "index.js",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/livastar/ui-tests-playwright.git"
-  },
   "scripts": {
-    "tests_on_chrome": "npx playwright test --project=chromium",
-    "tests_on_firefox": "npx playwright test --project=firefox",
-    "tests_on_safari": "npx playwright test --project=webkit",
-    "tests_on_all_browsers": "npx playwright test",
-    "clean_results": "rm -rf ./test-html-report/ && rm -rf ./test-xml-report && rm -rf ./test-results-artifacts/",
-    "report": "npx playwright show-report"
+    "postinstall": "echo 'npm run prettify' > .git/hooks/pre-commit && chmod ug+x .git/hooks/*",
+    "tests_on_chrome_locally": "npx playwright test --project=chromium",
+    "clean_results": "rm -rf ./playwright-report/",
+    "clean": "rm -rf node_modules/ && npm run clean_results",
+    "lint": "eslint src/ --format stylish",
+    "prettify": "npx prettier --write src/ && npx eslint src/ --format stylish --fix && git status",
+    "reinstall": "npm run clean && npm install",
+    "report": "npx playwright show-report playwright-report/html"
   },
   "keywords": [],
-  "author": "SIvanov",
+  "author": "",
   "license": "ISC",
-  "homepage": "https://github.com/livastar/ui-tests-playwright#readme",
+  "dependencies": {
+    "@typescript-eslint/eslint-plugin": "^5.54.0",
+    "@typescript-eslint/parser": "^5.54.0",
+    "envalid": "^7.3.1",
+    "eslint": "^8.35.0",
+    "eslint-plugin-import": "^2.26.0",
+    "eslint-plugin-playwright": "^0.12.0",
+    "playwright": "^1.31.0",
+    "typescript": "^5.0.2"
+  },
   "devDependencies": {
-    "@playwright/test": "^1.27.0",
-    "dotenv": "16.0.1",
-    "envalid": "7.3.1"
+    "@playwright/test": "^1.31.0",
+    "eslint-config-prettier": "^8.8.0",
+    "eslint-plugin-prettier": "^4.2.1"
   }
 }

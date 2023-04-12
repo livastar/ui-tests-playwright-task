@@ -1,0 +1,41 @@
+{
+  "env": {
+    "browser": true,
+    "es2021": true
+  },
+  "root": true,
+  "extends": ["eslint:recommended", "plugin:@typescript-eslint/recommended", "plugin:playwright/playwright-test", "plugin:prettier/recommended", "prettier"],
+  "parser": "@typescript-eslint/parser",
+  "parserOptions": {
+    "project": "./tsconfig.json",
+    "ecmaVersion": "latest",
+    "sourceType": "module"
+  },
+  "rules": {
+    "indent": ["error", 2, { "SwitchCase": 1 }], // Enforce 2-space indentation and 1-space indent for switch case clauses.
+    "quotes": ["error", "single", { "avoidEscape": true, "allowTemplateLiterals": true }], // Require single quotes, allow double quotes for escaping, and allow template literals.
+    "semi": ["error", "always"], // Enforce semicolons at the end of statements.
+    "function-paren-newline": ["error", { "minItems": 5 }], // Require newlines for function parameters if there are 5 or more.
+    "function-call-argument-newline": ["off"], // No enforcement for line breaks between function call arguments.
+    "eqeqeq": ["error", "always"], // Require strict equality (=== and !==) instead of loose equality (== and !=).
+    "curly": ["error", "all"], // Require curly braces for all control structures.
+    "constructor-super": ["error"], // Ensure proper use of super() in constructors.
+    "no-constant-condition": ["off"], // No enforcement for constant expressions in conditions.
+    "no-undef": ["off"], // No enforcement for disallowing the use of undeclared variables.
+    "no-unused-vars": ["off"], // No enforcement for disallowing unused variables.
+    "no-empty": ["off"], // No enforcement for disallowing empty block statements.
+    "no-empty-function": ["off"], // No enforcement for disallowing empty functions.
+    "no-var": ["error"], // Disallow the use of 'var' for variable declarations; use 'let' or 'const' instead.
+    "prefer-const": ["off"], // No enforcement for preferring 'const' over 'let' when a variable is never reassigned.
+    "ban-ts-comment": ["off"], // No enforcement for disallowing TypeScript comments that suppress errors.
+    "@typescript-eslint/ban-ts-comment": "off", // No enforcement for disallowing TypeScript comments that suppress errors (specific to TypeScript ESLint plugin).
+    "@typescript-eslint/no-unused-vars": "off", // No enforcement for disallowing unused variables (specific to TypeScript ESLint plugin).
+    "@typescript-eslint/no-empty-function": "off", // No enforcement for disallowing empty functions (specific to TypeScript ESLint plugin).
+    "spaced-comment": ["error", "always"] // Require a space after the comment start (// or /*) for readability.
+  },
+  "globals": {
+    "$": true,
+    "$$": true,
+    "page": true
+  }
+}
