@@ -12,22 +12,32 @@ test.describe('Tests @All', () => {
     await page.goto('', { waitUntil: 'networkidle' });
   });
 
-  test(`Basic Test: @Smoke`, async ({ page }) => {
-    await page.click('//*[@id="gwt-debug-mainMenu"]/div/div/div[1]/div[3]/div[1]/div/div[1]/img');
-    await page.click('//*[@id="gwt-debug-mainMenu"]/div/div/div[1]/div[3]/div[2]/div/div[1]/div[1]/div/div/div[2]');
-    await page.fill('#gwt-debug-cwBasicText-textbox', 'text');
+  test(`Basic Test: @xnn1`, async ({ page }) => {
+    const sectionTitle = 'Text Input';
+    const sectionSubTitle = 'Basic Text';
+    await onWidgetsSection.userShouldBeLoggedIn();
 
-    
-    
+    await page.locator('[role=treeitem][aria-expanded]', { hasText: sectionTitle }).locator('img').click();
+    await page.locator(`text=${sectionSubTitle}`).click();
+    await page.locator('#gwt-debug-cwBasicText-textbox').fill(sectionTitle);
+    await page.locator('#gwt-debug-cwBasicText-textbox').click();
+    const numLetters = sectionTitle.length;
+    console.log(`Number of letters: ${numLetters}`);
   });
 
-  test(`Rich Text: @Smoke`, async ({ page }) => {
-    await page.click('//*[@id="gwt-debug-mainMenu"]/div/div/div[1]/div[3]/div[1]/div/div[1]/img');
-    await page.click('//*[@id="gwt-debug-mainMenu"]/div/div/div[1]/div[3]/div[2]/div/div[1]/div[2]/div/div/div[2]');
-    await page.click('div.CMWVMEC-b-e:has-text("Rich Text")');
+  test(`Rich Text: @xnn2`, async ({ page }) => {
+    const message = 'Text';
+    const sectionTitle = 'Text Input';
+    const sectionSubTitle = 'Rich Text';
 
-    
+    await onWidgetsSection.userShouldBeLoggedIn();
+    await page.locator('[role=treeitem][aria-expanded]', { hasText: sectionTitle }).locator('img').click();
+    await page.locator(`text=${sectionSubTitle}`).click();
+    await page.getByRole('button', { name: 'Toggle Bold' }).click();
+    const frame = page.frameLocator("[id*='RichText-area']");
+    await frame.locator('body').type(message);
+    await expect(frame.locator('body')).toHaveText(message);
+
     await page.waitForTimeout(2000);
-
   });
 });
