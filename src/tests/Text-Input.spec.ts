@@ -38,6 +38,6 @@ test.describe('Tests @All', () => {
     await frame.locator('body').type(message);
     await expect(frame.locator('body')).toHaveText(message);
 
-    await page.waitForTimeout(2000);
+    await page.waitForTimeout(4000);
   });
 });
