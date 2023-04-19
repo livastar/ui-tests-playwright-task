@@ -66,6 +66,6 @@ test(`Digital Box: @Smoke3`, async ({ page }) => {
   expect(await closeButton.isVisible()).toBe(true);
   expect(await closeButton.evaluate((node) => node.textContent)).toBe('Close');
   await closeButton.click();
-  await page.waitForSelector(dialogBoxSelector, { state: 'hidden' });
-  expect(await dialogBox.isVisible()).toBe(false);
+   await page.waitForSelector(dialogBoxSelector, { state: 'hidden' });
+   expect(await dialogBox.isVisible()).toBe(false);
 });
