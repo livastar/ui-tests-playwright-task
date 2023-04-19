@@ -1,3 +1,4 @@
+/* eslint-disable playwright/no-conditional-in-test */
 import { test, expect } from '@playwright/test';
 import { Widgets as WidgetsSection } from '../pages/widgets-section';
 
@@ -52,20 +53,19 @@ test(`Digital Box: @Smoke3`, async ({ page }) => {
   const isConnected = await page.evaluate((element) => {
     return element.isConnected;
   }, dialogTopElement);
+  const dialogBoxSelector = 'div.gwt-DialogBox#gwt-debug-cwDialogBox';
+  await page.waitForSelector(dialogBoxSelector);
 
-  // eslint-disable-next-line playwright/no-conditional-in-test
-  if (isConnected) {
-    console.log('The dialogTop element is present on the page.');
-  } else {
-    console.log('The dialogTop element is not present on the page.');
-  }
-  await page.getByRole('button', { name: 'Close' }).click();
-  await page.waitForSelector('tr.dialogTop', { state: 'hidden' });
+  const dialogBox = await page.$(dialogBoxSelector);
+  expect(dialogBox).toBeTruthy();
+  expect(await dialogBox.isVisible()).toBe(true);
 
-  // eslint-disable-next-line playwright/no-conditional-in-test
-  if (await page.isVisible('tr.dialogTop')) {
-    console.log('The dialogTop element is visible on the page.');
-  } else {
-    console.log('The dialogTop element is not visible on the page.');
-  }
+  const closeButtonSelector = 'button.gwt-Button';
+  const closeButton = await dialogBox.$(closeButtonSelector);
+  expect(closeButton).toBeTruthy();
+  expect(await closeButton.isVisible()).toBe(true);
+  expect(await closeButton.evaluate((node) => node.textContent)).toBe('Close');
+  await closeButton.click();
+  await page.waitForSelector(dialogBoxSelector, { state: 'hidden' });
+  expect(await dialogBox.isVisible()).toBe(false);
 });
