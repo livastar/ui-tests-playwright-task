@@ -1,6 +1,9 @@
 import { expect, Locator, Page } from '@playwright/test';
 
 export class Widgets {
+  static clickAddRowButton() {
+      throw new Error('Method not implemented.');
+  }
   readonly widgets: Page;
   readonly checkBoxLabel: Locator;
   constructor(page: Page) {
