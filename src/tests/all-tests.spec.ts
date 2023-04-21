@@ -12,7 +12,7 @@ test.describe('Tests @All', () => {
     await page.goto('https://samples.gwtproject.org/samples', { waitUntil: 'networkidle' });
   });
 
-  test(`User is presented with base page: @Smoke`, async ({ page }) => {
+  test(`User1: @Smoke`, async ({ page }) => {
     await onWidgetsSection.userShouldBeLoggedIn();
     await expect(page).toHaveURL(`${testBaseURL}`);
   });
