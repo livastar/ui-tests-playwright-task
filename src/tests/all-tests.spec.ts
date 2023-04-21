@@ -9,11 +9,11 @@ test.describe('Tests @All', () => {
     onWidgetsSection = new WidgetsSection(page);
 
     testBaseURL = String(baseURL);
-    await page.goto('', { waitUntil: 'networkidle' });
+    await page.goto('https://samples.gwtproject.org/samples', { waitUntil: 'networkidle' });
   });
 
-  test(`User is presented with base page: @Smoke`, async ({ page }) => {
+  test(`User1: @Smoke`, async ({ page }) => {
     await onWidgetsSection.userShouldBeLoggedIn();
-    await expect(page).toHaveURL(`${testBaseURL}8`);
+    await expect(page).toHaveURL(`${testBaseURL}`);
   });
 });
