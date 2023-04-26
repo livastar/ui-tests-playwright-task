@@ -43,4 +43,16 @@ test.describe('Tests @All', () => {
     });
     await page.getByRole('button', { name: 'Normal Button' }).click();
   });
+
+  test(`Check if user could add/remove a new table row @ha`, async ({ page, baseURL }) => {
+    const modifiedUrl = baseURL.replace('CwCheckBox', 'CwFlexTable');
+    await page.goto(modifiedUrl, { waitUntil: 'networkidle' });
+
+    const tableRows = page.locator('table.cw-FlexTable > tbody > tr');
+    await expect(tableRows).toHaveCount(3);
+    await page.waitForTimeout(4000);
+    await page.locator('table.cw-FlexTable > tbody > tr ').getByRole('button', { name: 'Add a row' }).click();
+    await page.locator('table.cw-FlexTable > tbody > tr ').getByRole('button', { name: 'Add a row' }).click();
+    await expect(tableRows).toHaveCount(5);
+  });
 });

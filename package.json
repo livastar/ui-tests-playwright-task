@@ -4,7 +4,7 @@
   "description": "",
   "main": "index.js",
   "scripts": {
-    "postinstall": "echo 'npm run prettify' > .git/hooks/pre-commit && chmod ug+x .git/hooks/*",
+    "postinstall": "echo '#!/bin/sh \nnpm run prettify' > .git/hooks/pre-commit && chmod ug+x .git/hooks/*",
     "tests_on_chrome_locally": "npx playwright test --project=chromium",
     "clean_results": "rm -rf ./playwright-report/",
     "clean": "rm -rf node_modules/ && npm run clean_results",

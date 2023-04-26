@@ -67,36 +67,33 @@ export default defineConfig({
       },
     },
 
-    /* Base URL to use in actions like `await page.goto('/')`. */
-    baseURL: 'https://samples.gwtproject.org/samples/Showcase/Showcase.html#!CwCheckBox',
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
+    storageState: 'playwright-report/.auth/user.json',
   },
 
   /* Configure projects for major browsers */
   projects: [
     {
+      name: 'login',
+      testMatch: /login\.ts/,
+      use: {
+        baseURL: 'https://qa-automation-test-site.firebaseapp.com/',
+      },
+    },
+    {
+      name: 'chromium-special-site',
+      use: {
+        baseURL: 'https://qa-automation-test-site.firebaseapp.com/',
+        ...devices['Desktop Chrome'],
+      },
+      dependencies: ['login'],
+    },
+    {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
-      },
-    },
-    {
-      name: 'firefox',
-      use: {
-        ...devices['Desktop Firefox'],
-      },
-    },
-    {
-      name: 'webkit',
-      use: {
-        ...devices['Desktop Safari'],
-      },
-    },
-    {
-      name: 'edge',
-      use: {
-        ...devices['Desktop Edge'],
+        baseURL: 'https://samples.gwtproject.org/samples/Showcase/Showcase.html#!CwCheckBox',
       },
     },
   ],
