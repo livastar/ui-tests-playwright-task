@@ -50,7 +50,6 @@ test.describe('Tests @All', () => {
 
     const tableRows = page.locator('table.cw-FlexTable > tbody > tr');
     await expect(tableRows).toHaveCount(3);
-    await page.waitForTimeout(4000);
     await page.locator('table.cw-FlexTable > tbody > tr ').getByRole('button', { name: 'Add a row' }).click();
     await page.locator('table.cw-FlexTable > tbody > tr ').getByRole('button', { name: 'Add a row' }).click();
     await expect(tableRows).toHaveCount(5);
