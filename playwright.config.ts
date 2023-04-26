@@ -16,7 +16,7 @@ export default defineConfig({
     timeout: 20 * 1000,
   },
   /* Root directory for tests. */
-  testDir: './src/',
+  testDir: './src/tests/',
   /* Test files glob pattern. */
   globalTimeout: CI ? 60 * 60 * 1000 : undefined,
   /* Run tests in files in parallel */
@@ -69,25 +69,16 @@ export default defineConfig({
 
     /* Collect trace when retrying the failed test. See https://playwright.dev/docs/trace-viewer */
     trace: 'on-first-retry',
-    storageState: 'playwright-report/.auth/user.json',
   },
 
   /* Configure projects for major browsers */
   projects: [
-    {
-      name: 'login',
-      testMatch: /login\.ts/,
-      use: {
-        baseURL: 'https://qa-automation-test-site.firebaseapp.com/',
-      },
-    },
     {
       name: 'chromium-special-site',
       use: {
         baseURL: 'https://qa-automation-test-site.firebaseapp.com/',
         ...devices['Desktop Chrome'],
       },
-      dependencies: ['login'],
     },
     {
       name: 'chromium',
