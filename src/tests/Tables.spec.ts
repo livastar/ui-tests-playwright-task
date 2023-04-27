@@ -7,8 +7,12 @@ test(`Basic Popup: @tables1`, async ({ page }) => {
   const sectionSubTitle = 'Flex Table';
   await page.goto('/');
   await page.getByRole('treeitem', { name: sectionTitle }).getByRole('img').click();
-  await page.getByText(sectionSubTitle).click();
-  const images = await page.$$('#gwt-debug-cwFlexTable-1-0 img');
-  console.log(`Number of images found inside cw-FlexTable: ${images.length}`);
-  await page.waitForTimeout(2000);
+  await page.locator(`text=${sectionSubTitle}`).click();
+ const tableRows = page.locator('table.cw-FlexTable > tbody > tr');
+ await expect(tableRows).toHaveCount(3);
+ await page.locator('table.cw-FlexTable > tbody > tr ').getByRole('button', {name: 'Add a Row'}).click();
+ await expect(tableRows).toHaveCount(4);
+  
+
+  
 });
