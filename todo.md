@@ -15,7 +15,7 @@
         Navigate to the "Rich Text" section.
         Enter and format text in the rich text editor, submit the text, and verify the formatted text is displayed below the editor.
 
-</details>
+</details> 
 
 <details>
 <summary> 🎯 Popups</summary>

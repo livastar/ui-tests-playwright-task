@@ -11,5 +11,8 @@
   "playwright.reuseBrowser": true,
   "playwright.env": {},
   "prettier.configPath": ".prettierrc",
-  "prettier.useTabs": true
+  "prettier.useTabs": true,
+  "[typescript]": {
+    "editor.defaultFormatter": "vscode.typescript-language-features"
+  }
 }
