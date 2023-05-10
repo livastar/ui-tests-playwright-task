@@ -19,8 +19,8 @@ test.describe('Tests @All', () => {
 
     await onWidgetsSection.userShouldBeLoggedIn();
 
-    await page.locator('[role=treeitem][aria-expanded]', { hasText: sectionTitle }).locator('img').click();
-    await page.locator(`text=${sectionSubTitle}`).click();
+    await page.locator('[role=treeitem][aria-expanded]', { hasText: 'Text Input' }).locator('img').click();
+    await page.locator(`text='Text Input'`).click();
 
     const frame = page.frameLocator("[id*='RichText-area']");
     await frame.locator('body').type(message);
@@ -33,10 +33,6 @@ test.describe('Tests @All', () => {
     await page.getByRole('treeitem', { name: sectionSubTitle, exact: true }).getByText(sectionSubTitle).click();
 
     page.once('dialog', async (dialog) => {
-      console.log(`------------------------------------------------------------------------------------------------`);
-      console.log(`+_+_+_++__+_+_+_+_+_+_+_+_ ${dialog.message()} +_+_+_++__+_+_+_+_+_+_+_+_`);
-      console.log(`+_+_+_++__+_+_+_+_+_+_+_+_ ${dialog.type()} +_+_+_++__+_+_+_+_+_+_+_+_`);
-      console.log(`------------------------------------------------------------------------------------------------`);
       expect(dialog.message()).toBe(message);
       expect(dialog.type()).toBe('alerts');
       dialog.accept().catch(() => {});
