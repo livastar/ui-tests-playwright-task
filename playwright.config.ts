@@ -81,6 +81,13 @@ export default defineConfig({
       },
     },
     {
+      name: 'chromium-webdriver-university',
+      use: {
+        baseURL: 'http://www.webdriveruniversity.com/Contact-Us/contactus.html',
+        ...devices['Desktop Chrome'],
+      },
+    },
+    {
       name: 'chromium',
       use: {
         ...devices['Desktop Chrome'],
