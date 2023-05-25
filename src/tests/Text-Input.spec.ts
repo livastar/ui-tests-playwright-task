@@ -37,7 +37,5 @@ test.describe('Tests @All', () => {
     const frame = page.frameLocator("[id*='RichText-area']");
     await frame.locator('body').type(message);
     await expect(frame.locator('body')).toHaveText(message);
-
-    await page.waitForTimeout(2000);
   });
 });

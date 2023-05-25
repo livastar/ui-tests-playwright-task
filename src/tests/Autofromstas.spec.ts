@@ -20,7 +20,4 @@ login('Perform a login for further usage: @auto1', async ({ page }) => {
   await page.getByLabel('Total years experience').fill('4');
   await page.getByLabel('City').fill('Monaco');
   await page.getByRole('button', { name: 'Print details' }).click();
-
-
-  
 });
